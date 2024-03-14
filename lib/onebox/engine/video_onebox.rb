@@ -6,9 +6,11 @@ module Onebox
       include Engine
       # 添加对m3u8文件的匹配
       matches_regexp(%r{^(https?:)?//.*\.(mov|mp4|webm|ogv|m3u8)(\?.*)?$}i)
+
       def always_https?
         AllowlistedGenericOnebox.host_matches(uri, AllowlistedGenericOnebox.https_hosts)
       end
+
       def to_html
         # 判断是否是m3u8文件，如果是，则使用适用于Video.js的HTML模板
         if @url.match(%r{\.m3u8$})

@@ -7,7 +7,7 @@ Dir["#{Rails.root}/lib/onebox/engine/*_onebox.rb"].sort.each { |f| require f }
 module Oneboxer
   ONEBOX_CSS_CLASS = "onebox"
   AUDIO_REGEX = /\A\.(mp3|og[ga]|opus|wav|m4[abpr]|aac|flac)\z/i
-  VIDEO_REGEX = /\A\.(mov|mp4|webm|m4v|3gp|ogv|avi|mpeg|ogv)\z/i
+  VIDEO_REGEX = /\A\.(mov|mp4|webm|m4v|3gp|ogv|avi|mpeg|ogv|m3u8)\z/i
   HLS_REGEX = /\A\.(m3u8)\z/i
   # keep reloaders happy
   unless defined?(Oneboxer::Result)
