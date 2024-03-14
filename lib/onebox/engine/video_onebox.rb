@@ -39,7 +39,11 @@ module Onebox
       end
 
       def placeholder_html
-        SiteSetting.enable_diffhtml_preview ? to_html : ::Onebox::Helpers.video_placeholder_html
+        if @url.match(%r{\.m3u8$})
+          to_html
+        else
+          SiteSetting.enable_diffhtml_preview ? to_html : ::Onebox::Helpers.video_placeholder_html
+        end
       end
     end
   end
