@@ -174,6 +174,7 @@ def compress_ruby(from, to)
 
   uglified, map =
     Uglifier.new(
+      harmony: true,
       comments: :none,
       source_map: {
         filename: File.basename(from),
