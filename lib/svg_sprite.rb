@@ -161,6 +161,7 @@ module SvgSprite
         keyboard
         layer-group
         link
+        video
         list
         list-ol
         list-ul

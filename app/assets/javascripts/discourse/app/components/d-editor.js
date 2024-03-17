@@ -9,6 +9,7 @@ import { translations } from "pretty-text/emoji/data";
 import { resolveCachedShortUrls } from "pretty-text/upload-short-url";
 import { Promise } from "rsvp";
 import InsertHyperlink from "discourse/components/modal/insert-hyperlink";
+import InsertVideolink from "discourse/components/modal/insert-videolink";
 import { ajax } from "discourse/lib/ajax";
 import { SKIP } from "discourse/lib/autocomplete";
 import { setupHashtagAutocomplete } from "discourse/lib/hashtag-autocomplete";
@@ -98,6 +99,16 @@ class Toolbar {
         sendAction: (event) => this.context.send("showLinkModal", event),
       });
     }
+
+    this.addButton({
+      id: "video-link",
+      icon: "video",
+      group: "insertions",
+      shortcut: "V",
+      preventFocus: true,
+      trimLeading: true,
+      sendAction: (event) => this.context.send("showVideoLinkModal", event),
+    });
 
     this.addButton({
       id: "blockquote",
@@ -775,6 +786,26 @@ export default Component.extend(TextareaTextManipulation, {
       }
 
       this.modal.show(InsertHyperlink, {
+        model: {
+          linkText,
+          toolbarEvent,
+        },
+      });
+    },
+
+    showVideoLinkModal(toolbarEvent) {
+      if (this.disabled) {
+        return;
+      }
+
+      let linkText = "";
+      this._lastSel = toolbarEvent.selected;
+
+      if (this._lastSel) {
+        linkText = this._lastSel.value;
+      }
+
+      this.modal.show(InsertVideolink, {
         model: {
           linkText,
           toolbarEvent,
