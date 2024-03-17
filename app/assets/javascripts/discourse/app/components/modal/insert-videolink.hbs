@@ -1,0 +1,32 @@
+<DModal
+        @closeModal={{@closeModal}}
+        @title={{i18n "composer.video_url_dialog_title"}}
+>
+    <:body>
+        <div class="inputs">
+            <input
+                {{on "input" this.updateLinkVoid}}
+                    value={{this.linkUrl}}
+                    placeholder={{i18n "composer.video_url_placeholder"}}
+                    type="text"
+                    autofocus="autofocus"
+                    class="link-url"
+            />
+        </div>
+    </:body>
+
+    <:footer>
+        <DButton
+                @action={{this.ok}}
+                @label="composer.modal_ok"
+                type="submit"
+                class="btn-primary"
+        />
+
+        <DButton
+                @action={{@closeModal}}
+                @label="composer.modal_cancel"
+                class="btn-danger"
+        />
+    </:footer>
+</DModal>
