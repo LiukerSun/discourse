@@ -17,20 +17,12 @@ module Onebox
       def to_html
         <<-HTML
           <iframe
-            class="tiktok-onebox"
+            class="bilibili-onebox"
             src="https://player.bilibili.com/player.html?aid=#{aid}&bvid=#{bvid}&cid=#{cid}&autoplay=0"
             sandbox="allow-popups allow-popups-to-escape-sandbox allow-scripts allow-top-navigation allow-same-origin"
             frameborder="0"
             seamless="seamless"
-            scrolling="no"
-            style="
-              min-width: 323px;
-              border: 4px solid #fff;
-              border-top: 3px solid #fff;
-              background-color: #fff;
-              border-radius: 9px;
-              "
-          ></iframe>
+            scrolling="no"></iframe>
         HTML
       end
 
