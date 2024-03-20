@@ -104,7 +104,7 @@ class Toolbar {
       id: "video-link",
       icon: "video",
       group: "insertions",
-      shortcut: "V",
+      shortcut: "Shift+10",
       preventFocus: true,
       trimLeading: true,
       sendAction: (event) => this.context.send("showVideoLinkModal", event),
